@@ -1,4 +1,4 @@
-import './src/global/main.scss'
+import './main.scss'
 
 const accessKey = '6OlH4Gek72BdTG9ZvnbHxoqAdlScntGLuZE9etBeYRo'
 const searchInput = document.getElementById('searchInput')
