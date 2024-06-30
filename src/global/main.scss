@@ -1,0 +1,121 @@
+@import './src/global/extends';
+@import './src/global/variables';
+
+* {
+  margin: 0;
+  padding: 0;
+  background-color: $primary-color;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+}
+.header {
+  display: flex;
+  max-height: 80px;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  padding: 5px;
+  flex-wrap: wrap;
+  //justify-content: space-between;
+  align-items: center;
+  .icono {
+    width: 20px;
+  }
+  .inicio {
+    justify-content: space-around;
+    display: flex;
+    margin: 5px 0px;
+    padding: 10px;
+    width: 25%;
+    gap: 10px;
+    button {
+      border: none;
+      font-size: 0, 4em;
+    }
+    .btn {
+      background-color: black;
+      border-radius: 30px;
+      color: white;
+      width: 60px;
+      min-height: 20px;
+      font-size: large;
+    }
+  }
+  .input {
+    width: 60%;
+    border: none;
+    flex-grow: 1;
+
+    .buscador {
+      flex-wrap: wrap;
+      width: 100%;
+      border: none;
+      border-radius: 30px;
+      background-color: rgb(245, 231, 245);
+      height: 35px;
+    }
+  }
+  .finheader {
+    display: flex;
+    width: 15%;
+    justify-content: space-around;
+  }
+}
+#imageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px;
+}
+
+.image-item {
+  margin: 10px;
+  flex: 1 1 calc(25% - 20px);
+}
+
+.image-item img {
+  max-width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 450px) {
+  .header {
+    .inicio {
+      width: 30%;
+      .btn {
+        font-size: large;
+        font-weight: lighter;
+      }
+    }
+    .buscador {
+      margin-left: 30px;
+    }
+    .input {
+      max-width: 120px;
+      margin-left: 20px;
+    }
+    .finheader {
+      img {
+        display: none;
+        width: 0%;
+      }
+    }
+  }
+  .image-item {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+@media (max-width: 750px) {
+  .header {
+    .input {
+      width: 40%;
+      margin-left: 80px;
+    }
+  }
+  .image-item {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
