@@ -1,4 +1,4 @@
-@import './src/global/extends';
+@import './src/global/mediaquery';
 @import './src/global/variables';
 
 * {
@@ -79,43 +79,4 @@ body {
   max-width: 100%;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 450px) {
-  .header {
-    .inicio {
-      width: 30%;
-      .btn {
-        font-size: large;
-        font-weight: lighter;
-      }
-    }
-    .buscador {
-      margin-left: 30px;
-    }
-    .input {
-      max-width: 120px;
-      margin-left: 20px;
-    }
-    .finheader {
-      img {
-        display: none;
-        width: 0%;
-      }
-    }
-  }
-  .image-item {
-    flex: 1 1 calc(50% - 20px);
-  }
-}
-@media (max-width: 750px) {
-  .header {
-    .input {
-      width: 40%;
-      margin-left: 80px;
-    }
-  }
-  .image-item {
-    flex: 1 1 calc(50% - 20px);
-  }
 }
