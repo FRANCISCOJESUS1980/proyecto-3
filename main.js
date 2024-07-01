@@ -71,7 +71,13 @@ function displayImages(images) {
   images.forEach((image) => {
     const imgElement = document.createElement('div')
     imgElement.classList.add('image-item')
-    imgElement.innerHTML = `<img src="${image.urls.small}" alt="${image.alt_description}">`
+    imgElement.innerHTML = `<img src="${image.urls.small}" alt="${image.alt_description}">
+     <div class="user-info">
+        <a href="${image.user.links.html}" target="_blank">
+          <img src="${image.user.profile_image.small}" alt="${image.user.name}" class="user-profile-pic">
+          ${image.user.name}
+        </a>
+      </div>`
     imageContainer.appendChild(imgElement)
   })
 }
