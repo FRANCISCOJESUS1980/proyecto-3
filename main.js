@@ -3,19 +3,33 @@ import './main.scss'
 const accessKey = '6OlH4Gek72BdTG9ZvnbHxoqAdlScntGLuZE9etBeYRo'
 const searchInput = document.getElementById('searchInput')
 const imageContainer = document.getElementById('imageContainer')
+const logoElement = document.getElementById('logo')
+
+let lastQuery = ''
+let typingTimer
+const doneTypingInterval = 4000
 
 document.addEventListener('DOMContentLoaded', () => {
   searchImages('nature')
 })
 
 searchInput.addEventListener('input', () => {
-  const query = searchInput.value
+  clearTimeout(typingTimer)
+  const query = searchInput.value.trim()
+  if (query !== lastQuery) {
+    lastQuery = query
+  }
   if (query) {
+    typingTimer = setTimeout(() => {
+      searchImages(query)
+    }, doneTypingInterval)
     searchImages(query)
   } else {
-    imageContainer.innerHTML = ''
-    clearSuggestion()
+    searchImages('nature')
   }
+})
+logoElement.addEventListener('click', () => {
+  location.reload()
 })
 
 async function searchImages(query) {
@@ -32,6 +46,12 @@ async function searchImages(query) {
     displaySuggestion(
       'no se encontraron imagenes. Prueba otra búsqueda o intenta con gatos'
     )
+  }
+  clearTimeout(typingTimer)
+  if (query) {
+    setTimeout(() => {
+      searchInput.value = ''
+    }, doneTypingInterval)
   }
 }
 async function fetchCatImages() {
