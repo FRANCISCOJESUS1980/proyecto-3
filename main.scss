@@ -1,6 +1,6 @@
-@import './src/global/mediaquery';
 @import './src/global/variables';
 @import './src/global/imagenes';
+@import './src/global/mediaquery';
 
 * {
   margin: 0;
@@ -15,7 +15,6 @@ body {
 }
 .header {
   display: flex;
-  //max-height: 100px;
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: $primary-color;

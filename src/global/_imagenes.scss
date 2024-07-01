@@ -62,19 +62,3 @@
     background-color: $secundary-color;
   }
 }
-
-@media (min-width: 768px) {
-  .image-item {
-    flex: 1 1 calc(100% / 4 - 16px);
-    max-width: calc(100% / 4 - 16px);
-    height: 250px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .image-item {
-    flex: 1 1 calc(100% / 6 - 16px);
-    max-width: calc(100% / 6 - 16px);
-    height: 250px;
-  }
-}
