@@ -1,14 +1,15 @@
 @import './src/global/mediaquery';
 @import './src/global/variables';
+@import './src/global/imagenes';
 
 * {
   margin: 0;
   padding: 0;
   background-color: $primary-color;
   box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
 }
 body {
-  font-family: 'Roboto', sans-serif;
   background-color: #ffffff;
 }
 .header {
@@ -64,7 +65,7 @@ body {
     justify-content: space-around;
   }
 }
-#imageContainer {
+/*#imageContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -81,3 +82,4 @@ body {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+*/
