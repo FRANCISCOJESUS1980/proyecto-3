@@ -1,7 +1,10 @@
 import './main.scss'
-import { searchImages, fetchCatImages } from './src/api.js'
-import { displayImages } from './src/displayImages.js'
-import { displaySuggestion, clearSuggestion } from './src/displaySuggestion.js'
+import { searchImages, fetchCatImages } from './src/componentes/api.js'
+import { displayImages } from './src/componentes/displayImages.js'
+import {
+  displaySuggestion,
+  clearSuggestion
+} from './src/componentes/displaySuggestion.js'
 
 const searchInput = document.getElementById('searchInput')
 const imageContainer = document.getElementById('imageContainer')
