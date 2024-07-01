@@ -10,7 +10,7 @@
   font-family: 'Roboto', sans-serif;
 }
 body {
-  background-color: #ffffff;
+  background-color: $quinto-color;
   cursor: pointer;
 }
 .header {
@@ -18,7 +18,7 @@ body {
   width: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   background-color: $primary-color;
-  padding: 5px;
+  padding: $primary-padding;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
@@ -28,18 +28,18 @@ body {
   .inicio {
     justify-content: space-around;
     display: flex;
-    margin: 5px 0px;
-    padding: 10px;
+    margin: $secundari-margin;
+    padding: $secundari-padding;
 
-    gap: 10px;
+    gap: $tercer-gap;
     button {
       border: none;
       font-size: 0, 4em;
     }
     .btn {
-      background-color: black;
-      border-radius: 30px;
-      color: white;
+      background-color: $tercer-color;
+      border-radius: $primari-borderadius;
+      color: $secundary-color;
       width: 60px;
       min-height: 20px;
       font-size: large;
@@ -55,8 +55,8 @@ body {
       flex-wrap: wrap;
       width: 100%;
       border: none;
-      border-radius: 30px;
-      background-color: rgb(245, 231, 245);
+      border-radius: $primari-borderadius;
+      background-color: $sexto-color;
       height: 35px;
     }
   }
