@@ -32,7 +32,8 @@
       color: $secundary-color;
       padding: 5px;
       text-align: center;
-      border-radius: 40px;
+      border-radius: 30px;
+      font-size: xx-small;
     }
 
     .user-info a {
@@ -43,13 +44,13 @@
       justify-content: center;
       gap: 5px;
       border-radius: 40px;
-      font-size: xx-small;
     }
 
     .user-profile-pic {
       border-radius: 50%;
       width: 25px;
       height: 25px;
+      margin-left: 30px;
     }
   }
   .image-item:hover {
