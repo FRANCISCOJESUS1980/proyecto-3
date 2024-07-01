@@ -14,12 +14,29 @@ searchInput.addEventListener('input', () => {
     searchImages(query)
   } else {
     imageContainer.innerHTML = ''
+    clearSuggestion()
   }
 })
 
 async function searchImages(query) {
   const response = await fetch(
-    `https://api.unsplash.com/search/photos?query=${query}&client_id=${accessKey}`
+    `https://api.unsplash.com/search/photos?query=${query}&per_page=30&client_id=${accessKey}`
+  )
+  const data = await response.json()
+  if (data.results.length > 0) {
+    displayImages(data.results)
+    clearSuggestion()
+  } else {
+    displayImages([])
+    fetchCatImages()
+    displaySuggestion(
+      'no se encontraron imagenes. Prueba otra búsqueda o intenta con gatos'
+    )
+  }
+}
+async function fetchCatImages() {
+  const response = await fetch(
+    `https://api.unsplash.com/search/photos?query=gatos&per_page=30&client_id=${accessKey}`
   )
   const data = await response.json()
   displayImages(data.results)

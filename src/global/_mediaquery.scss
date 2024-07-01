@@ -1,11 +1,11 @@
 @media (max-width: 450px) {
   .header {
     .inicio {
-      width: 40%;
+      width: min-content;
     }
 
     .input {
-      max-width: 120px;
+      max-width: 100px;
     }
     .finheader {
       img {
@@ -24,6 +24,13 @@
     .input {
       width: 40%;
       margin-left: 50px;
+    }
+    .inicio {
+      width: min-content;
+    }
+    .input {
+      width: 50px;
+      background-color: aqua;
     }
 
     .finheader {
