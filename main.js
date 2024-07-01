@@ -1,4 +1,7 @@
 import './main.scss'
+/*import { displayImages } from './src/displayImages.js'
+import { displaySuggestion, clearSuggestion } from './src/displaySuggestion.js'
+import { searchImages, fetchCatImages } from './src/api.js'*/
 
 const accessKey = '6OlH4Gek72BdTG9ZvnbHxoqAdlScntGLuZE9etBeYRo'
 const searchInput = document.getElementById('searchInput')
@@ -7,7 +10,7 @@ const logoElement = document.getElementById('logo')
 
 let lastQuery = ''
 let typingTimer
-const doneTypingInterval = 4000
+const doneTypingInterval = 6000
 
 document.addEventListener('DOMContentLoaded', () => {
   searchImages('nature')
@@ -16,9 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
 searchInput.addEventListener('input', () => {
   clearTimeout(typingTimer)
   const query = searchInput.value.trim()
-  if (query !== lastQuery) {
-    lastQuery = query
-  }
+  lastQuery = query
+
   if (query) {
     typingTimer = setTimeout(() => {
       searchImages(query)
@@ -38,13 +40,14 @@ async function searchImages(query) {
   )
   const data = await response.json()
   if (data.results.length > 0) {
-    displayImages(data.results)
-    clearSuggestion()
+    displayImages(data.results, imageContainer)
+    clearSuggestion(imageContainer)
   } else {
-    displayImages([])
+    displayImages([], imageContainer)
     fetchCatImages()
     displaySuggestion(
-      'no se encontraron imagenes. Prueba otra búsqueda o intenta con gatos'
+      'no se encontraron imagenes. Prueba otra búsqueda o intenta con gatos',
+      imageContainer
     )
   }
   clearTimeout(typingTimer)
@@ -54,12 +57,13 @@ async function searchImages(query) {
     }, doneTypingInterval)
   }
 }
+
 async function fetchCatImages() {
   const response = await fetch(
     `https://api.unsplash.com/search/photos?query=gatos&per_page=30&client_id=${accessKey}`
   )
   const data = await response.json()
-  displayImages(data.results)
+  displayImages(data.results, imageContainer)
 }
 
 function displayImages(images) {
