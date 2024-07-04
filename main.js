@@ -10,24 +10,18 @@ const searchInput = document.getElementById('searchInput')
 const imageContainer = document.getElementById('imageContainer')
 const logoElement = document.getElementById('logo')
 
-let typingTimer
-const doneTypingInterval = 6000
-
 document.addEventListener('DOMContentLoaded', () => {
   searchAndDisplayImages('nature')
 })
-
-searchInput.addEventListener('input', () => {
-  clearTimeout(typingTimer)
-  const query = searchInput.value.trim()
-
-  if (query) {
-    typingTimer = setTimeout(() => {
+searchInput.addEventListener('keypress', (event) => {
+  if (event.key === 'Enter') {
+    const query = searchInput.value.trim()
+    searchInput.value = ''
+    if (query) {
       searchAndDisplayImages(query)
-    }, doneTypingInterval)
-    searchAndDisplayImages(query)
-  } else {
-    searchAndDisplayImages('nature')
+    } else {
+      searchAndDisplayImages('nature')
+    }
   }
 })
 
